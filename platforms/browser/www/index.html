@@ -14,26 +14,30 @@
 
 <body class="bodystyle">
     <div class="container-fluid custom-style">
-      <form class="inner-element" action="JavaScript:calculate()" id="form">
+      <form class="inner-element" action="JavaScript:nextPage()" id="form">
         <div class="form-group">
           <label>Площадь пола (м<sup>2</sup>):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="square" required>
+          <input type="number" min="2" step="0.0001" class="form-control" id="square" required>
           <label>Объем помещения (м<sup>3</sup>):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="volume" required>
+          <input type="number" min="5" step="0.0001" class="form-control" id="volume" required>
           <label>Площадь проемов (м<sup>2</sup>):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="asquare" required>
-          <label>Высота проемов (м):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="height" required>
+          <input type="number" min="0.5" step="0.0001" class="form-control" id="asquare" required>
+          <label>Средняя высота проемов (м):</label>
+          <input type="number" min="0.25" step="0.0001" class="form-control" id="height" required>
           <label>Начальная температура воздуха (<sup>о</sup>С):</label>
-          <input type="number" min="-273" step="0.0001" class="form-control" id="temperature" required>
-          <label>Общее количество пожарной нагрузки (кг):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="load" required>
-          <label>Объем воздуха, необходимый для сгорания 1 кг материалов пожарной нагрузки (м<sup>3</sup>/кг):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="airvolume" required>
-          <label>Низшая теплота сгорания материалов пожарной нагрузки (МДж/кг):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="burn" required>
-          <label>Средняя скорость выгорения материалов (кг/(м<sup>2</sup> * мин)):</label>
-          <input type="number" min="0" step="0.0001" class="form-control" id="aburn" required>
+          <input type="number" min="-100" step="0.0001" class="form-control" id="temperature" required>
+        </div>
+        <hr>
+        <button type="submit" class="btn btn-default">Далее</button>
+      </form>
+
+      <form class="inner-element" action="JavaScript:calculate()" hidden id="secpage">
+        <div class="form-group">
+          <label>Выберите материалы пожарной нагрузки и введите их количество (кг):</label>
+          <label><input type="checkbox" onclick="JavaScript:toggle('wood', 'wood1')" class="form-control chck" id="wood"> Дерево</label>
+          <input type="number" min="0" step="0.0001" class="form-control" id="wood1" hidden>
+          <label><input type="checkbox" onclick="JavaScript:toggle('plastic', 'plastic1')" class="form-control chck" id="plastic"> Пластик</label>
+          <input type="number" min="0" step="0.0001" class="form-control" id="plastic1" hidden>
         </div>
         <hr>
         <button type="submit" class="btn btn-default">Рассчитать</button>
